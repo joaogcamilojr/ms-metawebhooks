@@ -6,7 +6,10 @@ import (
 	"net/http"
 	"os"
 
+	consumer "ms-webhooks/consumer"
 	whatsapp "ms-webhooks/whatsapp"
+
+	"github.com/joho/godotenv"
 )
 
 func HandleWhatsappPhoneRoute(w http.ResponseWriter, r *http.Request) {
@@ -43,6 +46,13 @@ func HandleWhatsappPhoneRoute(w http.ResponseWriter, r *http.Request) {
 }
 
 func main() {
+	err := godotenv.Load()
+	if err != nil {
+		fmt.Println("Error loading .env file")
+	}
+
+    go consumer.Handle()
+
 	port := os.Getenv("PORT")
 	fmt.Println("Server running on port: ", port)
 

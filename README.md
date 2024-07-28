@@ -2,6 +2,8 @@
 
 This repository contains a microservice for handling meta webhooks.
 
+### [🎥 Confira a Playlist do Projeto no YouTube! 🚀](https://www.youtube.com/watch?v=XbZ6neR4oms&list=PLOE-AgqKOXHKJxjDoywG5Y4xjGidITAyp)
+
 ### References
 
 [Go (Programming Language)](https://go.dev/)
@@ -16,22 +18,12 @@ RabbitMQ is a powerful open-source message broker software that implements the A
 [Facebook Graph API Webhooks](https://developers.facebook.com/docs/graph-api/webhooks/getting-started/)
 Facebook Graph API Webhooks allow you to receive real-time updates from Facebook when specific events occur. By setting up webhooks, you can subscribe to changes in user data, page updates, or other events on Facebook, and Facebook will send HTTP POST requests to your server whenever these events occur. This enables developers to build applications that react to changes on Facebook in real time, such as updating content or sending notifications.
 
-<iframe width="560" height="315" src="https://www.youtube.com/watch?v=XbZ6neR4oms" frameborder="0" allowfullscreen></iframe>
-
 ### Clone the Repository
 
 ```bash
 git clone https://github.com/joaogcamilojr/ms-metawebhooks.git
 cd ms-metawebhooks
-```
-
-### Required Environment
-
-```bash
-PORT=3000
-VERIFY_TOKEN=my-verify-token
-API_ACCESS_TOKEN=api_access_token
-RABBITMQ_URI=amqp://user:password@localhost:5672
+cp .env.example .env
 ```
 
 ### Running Rabbitmmq with Docker
