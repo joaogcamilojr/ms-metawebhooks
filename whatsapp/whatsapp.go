@@ -8,13 +8,26 @@ import (
 	"os"
 )
 
-func Verify(mode string, verify_token string) (bool) {
+type DefaultVerifier struct {}
+
+type DefaultReceiver struct {}
+
+type Verifier interface {
+	Verify(mode string, verify_token string) (bool)
+}
+
+type Receiver interface {
+	Receive(phone string, body []byte)
+}
+
+
+func (v DefaultVerifier) Verify(mode string, verify_token string) (bool) {
 	valid_verify_token := os.Getenv("VERIFY_TOKEN")
 
 	return mode == "subscribe" && verify_token == valid_verify_token
 }
 
-func Receive(phone string, body []byte) {
+func (r DefaultReceiver) Receive(phone string, body []byte) {
 	fmt.Println("phone: ", phone)
 
 	publisher.Handle(phone, body)
