@@ -2,11 +2,17 @@ package whatsapp
 
 import (
 	"bytes"
+	"encoding/json"
 	"fmt"
 	publisher "ms-webhooks/publisher"
 	"net/http"
 	"os"
 )
+
+type NewStructure struct {
+    Pattern string      `json:"pattern"`
+    Data    interface{} `json:"data"`
+}
 
 type DefaultVerifier struct {}
 
@@ -30,7 +36,27 @@ func (v DefaultVerifier) Verify(mode string, verify_token string) (bool) {
 func (r DefaultReceiver) Receive(phone string, body []byte) {
 	fmt.Println("phone: ", phone)
 
-	publisher.Handle(phone, body)
+    var originalBody map[string]interface{}
+
+    err := json.Unmarshal(body, &originalBody)
+
+    if (err != nil) {
+        fmt.Errorf("Error parsing body: %w", err)
+    }
+
+    newBody := NewStructure {
+        Pattern: "whatsapp",
+        Data: originalBody,
+    }
+
+    result, err := json.Marshal(newBody)
+
+
+    if (err != nil) {
+        fmt.Errorf("Error creating new body: %w", err)
+    }
+
+	publisher.Handle(phone, result)
 }
 
 func Send(body []byte) {

@@ -15,7 +15,7 @@ func failOnError(err error, msg string) {
 	}
 }
 
-func Handle(phone string, body []byte) {
+func Handle(identifier string, body []byte) {
 	rabbitmq_uri := os.Getenv("RABBITMQ_URI")
 
 	conn, err := amqp.Dial(rabbitmq_uri)
@@ -51,7 +51,7 @@ func Handle(phone string, body []byte) {
 			Body:        body,
 			Headers: amqp.Table {
 				"api_access_token": api_access_token,
-				"phone": phone,
+				"identifier": identifier,
 			},
 		},
 	)
