@@ -2,7 +2,7 @@
 
 This repository contains a microservice for handling meta webhooks.
 
-### [🎥 Confira a Playlist do Projeto no YouTube! 🚀](https://www.youtube.com/watch?v=XbZ6neR4oms&list=PLOE-AgqKOXHKJxjDoywG5Y4xjGidITAyp)
+### [🎥 Check out the Project Playlist on YouTube! 🚀](https://www.youtube.com/watch?v=XbZ6neR4oms&list=PLOE-AgqKOXHKJxjDoywG5Y4xjGidITAyp)
 
 ### References
 
