@@ -6,8 +6,8 @@ import (
 	"net/http"
 	"os"
 
-	consumer "ms-webhooks/consumer"
-	whatsapp "ms-webhooks/whatsapp"
+	consumer "ms-metawebhooks/consumer"
+	whatsapp "ms-metawebhooks/whatsapp"
 
 	"github.com/joho/godotenv"
 )

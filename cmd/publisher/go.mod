@@ -1,4 +1,4 @@
-module ms-webhooks/publisher
+module ms-metawebhooks/publisher
 
 go 1.22.2
 

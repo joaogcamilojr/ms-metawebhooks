@@ -4,7 +4,7 @@ import (
 	"bytes"
 	"encoding/json"
 	"fmt"
-	publisher "ms-webhooks/publisher"
+	publisher "ms-metawebhooks/publisher"
 	"net/http"
 	"os"
 )

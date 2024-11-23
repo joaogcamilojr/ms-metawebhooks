@@ -5,7 +5,7 @@ import (
 	"fmt"
 	"log"
 
-	whatsapp "ms-webhooks/whatsapp"
+	whatsapp "ms-metawebhooks/whatsapp"
 
 	amqp "github.com/rabbitmq/amqp091-go"
 )
