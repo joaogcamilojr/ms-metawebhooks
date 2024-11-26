@@ -7,6 +7,7 @@ import (
 	"os"
 
 	consumer "ms-metawebhooks/consumer"
+	webhook_data_entity "ms-metawebhooks/webhook_data_entity"
 	whatsapp "ms-metawebhooks/whatsapp"
 
 	"github.com/joho/godotenv"
@@ -40,6 +41,7 @@ func HandleWhatsappPhoneRoute(verifier whatsapp.Verifier, receiver whatsapp.Rece
 			}
 
 			receiver.Receive(phone, body)
+      webhook_data_entity.Create(phone, string(body))
 		default:
 			w.WriteHeader(http.StatusMethodNotAllowed)
 			w.Write([]byte("Method Not Allowed!"))
