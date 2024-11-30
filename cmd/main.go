@@ -56,7 +56,7 @@ func main() {
 		fmt.Println("Error loading .env file")
 	}
 
-    go consumer.Handle()
+  go consumer.Handle()
 
 	port := os.Getenv("PORT")
 	fmt.Println("Server running on port: ", port)

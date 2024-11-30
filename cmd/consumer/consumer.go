@@ -4,6 +4,7 @@ import (
 	"encoding/json"
 	"fmt"
 	"log"
+	"os"
 
 	whatsapp "ms-metawebhooks/whatsapp"
 
@@ -23,7 +24,9 @@ func failOnError(err error, msg string) {
 
 
 func Handle() {
-    conn, err := amqp.Dial("amqp://user:password@localhost:5672/")
+	  rabbitmq_uri := os.Getenv("RABBITMQ_URI")
+
+    conn, err := amqp.Dial(rabbitmq_uri)
     failOnError(err, "Failed to connect to RabbitMQ")
     defer conn.Close()
 
